@@ -15,13 +15,13 @@ model =
 
 
 type Msg
-    = ShowFace
+    = ToggleFace
 
 
 update : Msg -> Model -> Model
 update msg model_ =
     case msg of
-        ShowFace ->
+        ToggleFace ->
             if model_.showFace then
                 { model_
                     | showFace = False
@@ -36,7 +36,7 @@ view : Model -> Html Msg
 view model_ =
     div []
         [ h1 [] [ text "Face generator" ]
-        , button [ onClick ShowFace ]
+        , button [ onClick ToggleFace ]
             [ if model_.showFace then
                 text "Take it away!"
               else
